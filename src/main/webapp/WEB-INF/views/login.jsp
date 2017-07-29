@@ -16,7 +16,7 @@
     </style>
 </head>
 <body>
-    <h1 id="game">game</h1>
+    <h1 id="game">fpl dairy</h1>
     <p id="msg">${msg}</p>
 	<p>
         Zaloguj się,

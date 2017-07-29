@@ -15,7 +15,13 @@
 	</style>
 </head>
 <body>
-	<p>Hello! :D</p>
+	<h1 id="game">fpl dairy</h1>
+	<div class="nav">
+		<ul>
+			<li><a href="<spring:url value="/dashboard"/>">dashboard</a></li>
+			<li><a href="<spring:url value="/admin"/>">dodaj mecz</a></li>
+		</ul>
+	</div>
 	<form:form action="${'/logout'}" method="post">
 		<input type="submit" id="button" value="wyloguj"/>
 	</form:form>

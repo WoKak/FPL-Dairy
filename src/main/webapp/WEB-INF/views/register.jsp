@@ -2,6 +2,7 @@
 <%@ page session="false" contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"  %>
+
 <html>
 <head>
     <title>game</title>
@@ -15,7 +16,7 @@
     </style>
 </head>
 <body>
-<h1 id="game">game</h1>
+<h1 id="game">fpl dairy</h1>
 <p>
     <a href="<spring:url value="/home"/>">Powrót do strony głównej</a>.
 </p>
@@ -23,18 +24,18 @@
     <form:form modelAttribute="userToRegister">
         <label>Login:</label>
         <div class="form-group">
-            <form:input id="login" path="login" type="text" htmlEscape="true"/>
+            <form:input id="login" path="login" type="text"/>
         </div>
-        <label>Password:</label>
+        <label>Hasło:</label>
         <div>
-            <form:input id="password" path="password" type="password" onkeyup="counter();"/>
+            <form:input id="password" path="password" type="password"/>
         </div>
-        <label>Repeat password:</label>
+        <label>Powtórz hasło:</label>
         <div>
-            <form:input id="repeatedPassword" path="repeatedPassword" type="password" htmlEscape="true"/>
+            <form:input id="repeatedPassword" path="repeatedPassword" type="password"/>
         </div>
         <div class="form-group">
-            <input type="submit" id="button" value="Register"/>
+            <input type="submit" id="button" value="rejestruj"/>
         </div>
     </form:form>
 </div>

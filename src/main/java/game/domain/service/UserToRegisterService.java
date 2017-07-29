@@ -1,8 +1,8 @@
 package game.domain.service;
 
-import com.google.common.hash.Hashing;
 import game.domain.UserToRegister;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
 
@@ -20,12 +20,11 @@ import java.util.Optional;
 @Service
 public class UserToRegisterService {
 
-    private DataSource dataSource;
+    @Autowired
+    public PasswordEncoder passwordEncoder;
 
     @Autowired
-    public UserToRegisterService(DataSource ds) {
-        this.dataSource = ds;
-    }
+    private DataSource dataSource;
 
     /**
      * method responsible for registering user - in typical way (first user into users, then question into questions)
@@ -59,14 +58,7 @@ public class UserToRegisterService {
 
             String insertUsers = "INSERT INTO users (username, password, enabled) VALUES (?, ?, true)";
 
-
-            String salted = "^*)" + newUserToRegister.getPassword() + "%h&";
-
-            String hash = Hashing.sha256().hashString(salted, StandardCharsets.UTF_8).toString();
-
-            for(int i = 0; i < 1000; i++) {
-                hash = Hashing.sha256().hashString(hash, StandardCharsets.UTF_8).toString();
-            }
+            String hash = passwordEncoder.encode(newUserToRegister.getPassword());
 
             PreparedStatement pstat1 = connection.prepareStatement(insertUsers);
             pstat1.setString(1, newUserToRegister.getLogin());

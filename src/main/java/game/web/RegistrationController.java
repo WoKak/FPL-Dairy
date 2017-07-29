@@ -20,12 +20,8 @@ import javax.validation.Valid;
 @RequestMapping("/register")
 public class RegistrationController {
 
-    private UserToRegisterService userToRegisterService;
-
     @Autowired
-    public RegistrationController(UserToRegisterService us) {
-        this.userToRegisterService = us;
-    }
+    private UserToRegisterService userToRegisterService;
 
     @RequestMapping(method = RequestMethod.GET)
     public String getUserDataFromForm(Model model) {
@@ -39,7 +35,7 @@ public class RegistrationController {
     public String processAddNewUserForm
             (@ModelAttribute("userToRegister") @Valid UserToRegister newUserToRegister, BindingResult result) throws Exception{
 
-        this.userToRegisterService.addUser(newUserToRegister, result);
+        userToRegisterService.addUser(newUserToRegister, result);
         return "redirect:/login";
     }
 }
