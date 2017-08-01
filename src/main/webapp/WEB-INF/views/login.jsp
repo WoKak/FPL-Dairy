@@ -33,7 +33,7 @@
                 <input type="password" name="password" placeholder="hasło"/>
             </div>
             <div class="form-group">
-                <input type="submit" id="button" value="zaloguj"/>
+                <input type="submit" class="button" value="zaloguj"/>
             </div>
         </form:form>
     </div>

@@ -35,7 +35,7 @@
             <form:input id="repeatedPassword" path="repeatedPassword" type="password"/>
         </div>
         <div class="form-group">
-            <input type="submit" id="button" value="rejestruj"/>
+            <input type="submit" class="button" value="rejestruj"/>
         </div>
     </form:form>
 </div>

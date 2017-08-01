@@ -1,15 +1,28 @@
 package game.domain;
 
+import com.fasterxml.jackson.annotation.JsonView;
+import game.web.Views;
+
 /**
  * Created by Michał on 2017-07-29.
  */
 public class Match {
 
+    @JsonView(Views.Public.class)
     private int dayNumber;
+
+    @JsonView(Views.Public.class)
     private String homeTeam;
+
+    @JsonView(Views.Public.class)
     private String awayTeam;
+
+    @JsonView(Views.Public.class)
     private int homeGoals;
+
+    @JsonView(Views.Public.class)
     private int awayGoals;
+
     private String note;
 
     public Match() {

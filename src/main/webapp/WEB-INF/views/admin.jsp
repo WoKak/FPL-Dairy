@@ -51,7 +51,7 @@
             <form:textarea id="note" path="note" rows="15" cols="45"  type=""/>
         </div>
         <div class="form-group">
-            <input type="submit" id="button" value="dodaj"/>
+            <input type="submit" class="button" value="dodaj"/>
         </div>
     </form:form>
 </div>
