@@ -1,14 +1,11 @@
-package game.domain.service;
+package game.model.service;
 
-import game.domain.Match;
+import game.model.Match;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,16 +32,25 @@ public class DashboardService {
 
         while (result.next()) {
 
+            Blob tmpBlob = result.getBlob(6);
+            String tmpString = new String(tmpBlob.getBytes(1L, (int) tmpBlob.length()));
+
             toReturn.add(new Match(
                     result.getInt(1),
                     result.getString(2),
                     result.getString(3),
                     result.getInt(4),
                     result.getInt(5),
-                    result.getBlob(6).toString()
+                    tmpString
             ));
         }
 
         return toReturn;
+    }
+
+    public String findNoteByCriteria(String position, List<Match> matches) {
+
+        String tmp = position.substring(position.length() - 1);
+        return matches.get(Integer.parseInt(tmp)).getNote();
     }
 }

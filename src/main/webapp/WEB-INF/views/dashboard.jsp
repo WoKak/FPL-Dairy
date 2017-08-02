@@ -32,16 +32,14 @@
                 <br>
                 <input type="text" id="day_number">
                 <br>
-                <input type="submit" class="button" value="Szukaj" id="search"/>
+                <input type="submit" class="button" value="szukaj" id="search"/>
             </form>
         </td>
         <td>
-            <div id="games">
-
-            </div>
+            <div id="games"></div>
         </td>
         <td>
-
+            <div id="note"></div>
         </td>
     </tr>
 </table>
@@ -49,5 +47,6 @@
     <input type="submit" class="button" value="wyloguj"/>
 </form:form>
 <script type="text/javascript" src="/resources/js/find_matches.js"></script>
+<script type="text/javascript" src="/resources/js/find_note.js"></script>
 </body>
 </html>

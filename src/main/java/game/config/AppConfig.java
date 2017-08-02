@@ -1,5 +1,6 @@
 package game.config;
 
+import game.model.Match;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -8,10 +9,11 @@ import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
 
 import javax.sql.DataSource;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Michał on 2017-04-01.
@@ -38,6 +40,7 @@ public class AppConfig {
 
     @Bean
     public PasswordEncoder passwordEncoder(){
+
         PasswordEncoder encoder = new BCryptPasswordEncoder();
         return encoder;
     }

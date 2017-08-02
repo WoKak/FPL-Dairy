@@ -8,13 +8,11 @@ jQuery(document).ready(function($) {
         enableSearchButton(false);
         event.preventDefault();
 
-        searchViaAjax();
-
+        searchMatchViaAjax();
     });
-
 });
 
-function searchViaAjax() {
+function searchMatchViaAjax() {
 
     var search = {};
     search["number"] = $("#day_number").val();
@@ -22,13 +20,13 @@ function searchViaAjax() {
     $.ajax({
         type : "POST",
         contentType : "application/json",
-        url : "/search",
+        url : "/searchMatches",
         data : JSON.stringify(search),
         dataType : 'json',
         timeout : 100000,
         success : function(data) {
             console.log("SUCCESS: ", data);
-            display(data);
+            displayMatches(data);
         },
         error : function(e) {
             console.log("ERROR: ", e);
@@ -46,7 +44,7 @@ function enableSearchButton(flag) {
     $("#search").prop("disabled", flag);
 }
 
-function display(data) {
+function displayMatches(data) {
 
     var json = "<h4>Mecze:</h4>";
 
@@ -56,7 +54,7 @@ function display(data) {
 
     for(var i = 0; i < response.matches.length; i++) {
 
-        matches += '<p>';
+        matches += '<p id="match'+ i + '" class="match" onclick="searchNoteViaAjax(' + i + ')">';
         matches += response.matches[i].homeTeam + " ";
         matches += response.matches[i].homeGoals + ":";
         matches += response.matches[i].awayGoals + " ";

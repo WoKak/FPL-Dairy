@@ -1,7 +1,6 @@
-package game.domain;
+package game.model;
 
 import com.fasterxml.jackson.annotation.JsonView;
-import game.domain.Match;
 import game.web.Views;
 
 import java.util.List;
@@ -9,7 +8,7 @@ import java.util.List;
 /**
  * Created by Michał on 2017-08-01.
  */
-public class AjaxResponseBody {
+public class AjaxFoundMatchesResponseBody {
 
     @JsonView(Views.Public.class)
     List<Match> matches;

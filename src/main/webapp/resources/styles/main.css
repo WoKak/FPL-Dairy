@@ -104,3 +104,8 @@ td {
     height: 600px;
     text-align: center;
 }
+
+td p:hover {
+
+    color: #d93332;
+}

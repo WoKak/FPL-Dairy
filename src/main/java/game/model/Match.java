@@ -1,4 +1,4 @@
-package game.domain;
+package game.model;
 
 import com.fasterxml.jackson.annotation.JsonView;
 import game.web.Views;
@@ -23,6 +23,7 @@ public class Match {
     @JsonView(Views.Public.class)
     private int awayGoals;
 
+    @JsonView(Views.Public.class)
     private String note;
 
     public Match() {

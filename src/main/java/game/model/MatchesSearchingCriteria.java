@@ -1,9 +1,9 @@
-package game.domain;
+package game.model;
 
 /**
  * Created by Michał on 2017-08-01.
  */
-public class SearchCriteria {
+public class MatchesSearchingCriteria {
 
     private String number;
 

@@ -1,13 +1,12 @@
-package game.domain.service;
+package game.model.service;
 
-import game.domain.UserToRegister;
+import game.model.UserToRegister;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
 
 import javax.sql.DataSource;
-import java.nio.charset.StandardCharsets;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

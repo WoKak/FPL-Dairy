@@ -1,7 +1,7 @@
 package game.web;
 
-import game.domain.UserToRegister;
-import game.domain.service.UserToRegisterService;
+import game.model.UserToRegister;
+import game.model.service.UserToRegisterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
