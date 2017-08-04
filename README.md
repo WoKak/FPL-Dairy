@@ -33,14 +33,7 @@ purposes, in future it will be also little game connected to this app
 Make the war file then place the file in Tomcat's webapps directory, 
 run Tomcat server and access application here: "http://localhost:8080/home"
  
--------------------------------------------------------------
- 
-- You also need base.txt file in both versions. (very simple one is provided in the same directory as jar file).
-
-- In order to change base just replace base.txt file (WARNING! words should be in the same order
-as before).
-
-- As well as you need database.properties file, i.e:
+* database.properties file, i.e:
 
 ```
     jdbc.drivers=com.mysql.Driver
