@@ -14,6 +14,7 @@ import javax.validation.Valid;
 
 /**
  * Created by Michał on 2017-07-26.
+ * Registration page controller.
  */
 
 @Controller
@@ -23,6 +24,9 @@ public class RegistrationController {
     @Autowired
     private UserToRegisterService userToRegisterService;
 
+    /**
+     * Method which binds data.
+     */
     @RequestMapping(method = RequestMethod.GET)
     public String getUserDataFromForm(Model model) {
 
@@ -31,6 +35,9 @@ public class RegistrationController {
         return "register";
     }
 
+    /**
+     * Method which adds data to database.
+     */
     @RequestMapping(method = RequestMethod.POST)
     public String processAddNewUserForm
             (@ModelAttribute("userToRegister") @Valid UserToRegister newUserToRegister, BindingResult result) throws Exception{

@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  * Created by Michał on 2017-07-16.
+ * Controller for dashboard page
  */
 
 @Controller

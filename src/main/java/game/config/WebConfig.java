@@ -10,11 +10,17 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
+/**
+ * Configuration class
+ */
 @Configuration
 @EnableWebMvc
 @ComponentScan("game.web")
 public class WebConfig extends WebMvcConfigurerAdapter {
 
+  /**
+   * Resolver configuration
+   */
   @Bean
   public ViewResolver viewResolver() {
     InternalResourceViewResolver resolver = new InternalResourceViewResolver();

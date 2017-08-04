@@ -13,11 +13,12 @@ import java.sql.SQLException;
 
 /**
  * Created by Michał on 2017-07-29.
+ * Controller for adding matches page
  */
 
 @Controller
-@RequestMapping(value = "/admin")
-public class AdminController {
+@RequestMapping(value = "/addMatch")
+public class MatchToAddController {
 
     @Autowired
     public MatchService matchService;
@@ -27,7 +28,7 @@ public class AdminController {
 
         Match newMatch = new Match();
         model.addAttribute("newMatch", newMatch);
-        return "admin";
+        return "addMatch";
     }
 
     @RequestMapping(method = RequestMethod.POST)

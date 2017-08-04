@@ -6,6 +6,7 @@ import javax.validation.constraints.Size;
 
 /**
  * Created by Michał on 2017-07-26.
+ * Class used for registration process
  */
 public class UserToRegister {
 

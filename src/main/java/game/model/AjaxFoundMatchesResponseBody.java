@@ -7,6 +7,7 @@ import java.util.List;
 
 /**
  * Created by Michał on 2017-08-01.
+ * Simple class for mapping Java object to JSON
  */
 public class AjaxFoundMatchesResponseBody {
 

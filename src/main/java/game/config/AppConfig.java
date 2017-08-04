@@ -1,6 +1,6 @@
 package game.config;
 
-import game.model.Match;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,11 +12,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 
 import javax.sql.DataSource;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Michał on 2017-04-01.
+ * Beans configuration class
  */
 
 @Configuration
@@ -26,6 +25,9 @@ public class AppConfig {
     @Autowired
     private Environment env;
 
+    /**
+     * Database bean
+     */
     @Bean
     public DataSource dataSource() {
 
@@ -38,6 +40,9 @@ public class AppConfig {
         return ds;
     }
 
+    /**
+     * Encoder bean
+     */
     @Bean
     public PasswordEncoder passwordEncoder(){
 

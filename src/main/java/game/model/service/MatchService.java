@@ -11,6 +11,7 @@ import java.sql.SQLException;
 
 /**
  * Created by Michał on 2017-07-29.
+ * Service for MatchToAddController
  */
 
 @Service
@@ -19,6 +20,10 @@ public class MatchService {
     @Autowired
     private DataSource dataSource;
 
+    /**
+     * Method connects with database and put there data
+     * @param matchToAdd - data provided by user in form
+     */
     public void addMatch(Match matchToAdd) throws SQLException{
 
         Connection connection = dataSource.getConnection();

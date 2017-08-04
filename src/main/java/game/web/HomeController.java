@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  * Created by Michał on 2017-07-17.
+ * Controller of the home page
  */
 
 @Controller

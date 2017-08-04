@@ -2,6 +2,9 @@ package game.config;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
+/**
+ * Configuration class
+ */
 public class GameWebInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
   
   @Override

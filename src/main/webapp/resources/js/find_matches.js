@@ -1,6 +1,8 @@
 /**
  * Created by Michał on 2017-08-01.
  */
+
+//main function with anonymous function responsible for processing form submitting
 jQuery(document).ready(function($) {
 
     $("#matchday_form").submit(function(event) {
@@ -12,6 +14,7 @@ jQuery(document).ready(function($) {
     });
 });
 
+//function responsible for AJAX request
 function searchMatchViaAjax() {
 
     var search = {};
@@ -40,10 +43,12 @@ function searchMatchViaAjax() {
 
 }
 
+//function for enabling search button
 function enableSearchButton(flag) {
     $("#search").prop("disabled", flag);
 }
 
+//function responsible for displaying data
 function displayMatches(data) {
 
     var json = "<h4>Mecze:</h4>";

@@ -8,6 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 /**
  * Created by Michał on 2017-07-16.
+ * Login page controller
  */
 
 @Controller

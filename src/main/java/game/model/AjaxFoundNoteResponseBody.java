@@ -5,6 +5,7 @@ import game.web.Views;
 
 /**
  * Created by Michał on 2017-08-02.
+ * Simple class for mapping Java object to JSON
  */
 public class AjaxFoundNoteResponseBody {
 

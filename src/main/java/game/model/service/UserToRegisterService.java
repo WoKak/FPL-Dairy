@@ -14,6 +14,7 @@ import java.util.Optional;
 
 /**
  * Created by Michał on 2017-07-26.
+ * Service for RegistrationController
  */
 
 @Service
@@ -26,7 +27,7 @@ public class UserToRegisterService {
     private DataSource dataSource;
 
     /**
-     * method responsible for registering user - in typical way (first user into users, then question into questions)
+     * method responsible for registering user
      */
     public void addUser(UserToRegister newUserToRegister, BindingResult bindingResult) throws Exception {
 

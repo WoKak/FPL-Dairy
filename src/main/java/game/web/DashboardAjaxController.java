@@ -14,6 +14,7 @@ import java.util.Optional;
 
 /**
  * Created by Michał on 2017-08-01.
+ * Rest controller for dashboard purposes.
  */
 
 @RestController
@@ -24,6 +25,11 @@ public class DashboardAjaxController {
     @Autowired
     public DashboardService dashboardService;
 
+    /**
+     * Method used for finding matches.
+     * @param criteria - input from form
+     * @return - JSON with list of matches
+     */
     @JsonView(Views.Public.class)
     @RequestMapping(value = { "/searchMatches"})
     public AjaxFoundMatchesResponseBody findMatches(@RequestBody MatchesSearchingCriteria criteria) throws SQLException {
@@ -43,6 +49,11 @@ public class DashboardAjaxController {
         return result;
     }
 
+    /**
+     * Method used for finding matches in database.
+     * @param criteria - input from form
+     * @return - list of matching matches
+     */
     private List<Match> findMatchesByCriteria(String criteria) throws SQLException{
 
         matches = dashboardService.findMatchesByCriteria(criteria);
@@ -50,6 +61,11 @@ public class DashboardAjaxController {
         return matches;
     }
 
+    /**
+     * Finds note for clicked match.
+     * @param criteria - which match was clicked
+     * @return - JSON with note
+     */
     @JsonView(Views.Public.class)
     @RequestMapping(value = { "/searchNote"})
     public AjaxFoundNoteResponseBody findNote(@RequestBody NoteSearchingCriteria criteria) throws SQLException {
@@ -69,6 +85,11 @@ public class DashboardAjaxController {
         return result;
     }
 
+    /**
+     * Finds note in database.
+     * @param position - which match was clicked
+     * @return - note
+     */
     private String getNoteByCriteria(String position) {
 
         return dashboardService.findNoteByCriteria(position, matches);

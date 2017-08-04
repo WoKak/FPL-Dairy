@@ -2,15 +2,7 @@
  * Created by Michał on 2017-08-02.
  */
 
-/*$("#games").on('click', '#games p', function (event) {
-
-    enableSearchButton(false);
-    event.preventDefault();
-
-    var id = this.id;
-    searchNoteViaAjax(id);
-});*/
-
+//function responsible for AJAX request
 function searchNoteViaAjax(id) {
 
     var search = {};
@@ -38,6 +30,7 @@ function searchNoteViaAjax(id) {
     });
 }
 
+//function responsible for displaying data
 function displayNote(data) {
 
     var response = JSON.parse(JSON.stringify(data, null, 4));

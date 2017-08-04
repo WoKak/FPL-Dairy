@@ -11,6 +11,7 @@ import java.util.List;
 
 /**
  * Created by Michał on 2017-08-01.
+ * Service for DashboardAjaxController
  */
 
 @Service
@@ -19,6 +20,11 @@ public class DashboardService {
     @Autowired
     DataSource dataSource;
 
+    /**
+     * Finds list of matches by criteria.
+     * @param criteria - data provided by user in dashboard form
+     * @return - list of matching matches
+     */
     public List<Match> findMatchesByCriteria(String criteria) throws SQLException{
 
         List<Match> toReturn = new ArrayList<>();
@@ -48,6 +54,12 @@ public class DashboardService {
         return toReturn;
     }
 
+    /**
+     * Finds note from previous found matches.
+     * @param position - which match was selected
+     * @param matches - previous list
+     * @return - note from selected match
+     */
     public String findNoteByCriteria(String position, List<Match> matches) {
 
         String tmp = position.substring(position.length() - 1);
