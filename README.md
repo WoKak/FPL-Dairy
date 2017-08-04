@@ -20,7 +20,7 @@ purposes, in future it will be also little game connected to this app
 * Maven 3.3.9
 * MySQL
 
-## Features
+# Features
 
 * Adding notes from Premier League matches
 * Dynamically searching and viewing added notes
@@ -44,3 +44,7 @@ run Tomcat server and access application here: "http://localhost:8080/home"
     
     jdbc.password=verysecretpassword
 ```
+
+##### Note
+
+I am not the owner of the images, I've found them in the Internet.
