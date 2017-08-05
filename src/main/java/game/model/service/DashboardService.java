@@ -42,16 +42,13 @@ public class DashboardService {
 
         while (result.next()) {
 
-            Blob tmpBlob = result.getBlob(6);
-            String tmpString = new String(tmpBlob.getBytes(1L, (int) tmpBlob.length()));
-
             toReturn.add(new Match(
                     result.getInt(1),
                     result.getString(2),
                     result.getString(3),
                     result.getInt(4),
                     result.getInt(5),
-                    tmpString
+                    result.getString(6)
             ));
         }
 
