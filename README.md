@@ -6,15 +6,15 @@ purposes, in future it will be also little game connected to this app
 ## Technology stack
 
 * Java 8
-* Spring MVC 4.2.2
-* Spring JDBC 4.2.2
+* Spring MVC 4.3.9
+* Spring JDBC 4.3.9
 * Spring Security 4.2.2
 * Servlet API 3.1
 * JavaScript
 * AJAX
 * Jackson 2.8.8
 * JSON
-* jQuery
+* jQuery 3.2.1
 * JSP
 * CSS
 * Maven 3.3.9
