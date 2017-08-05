@@ -5,14 +5,10 @@
 //function responsible for AJAX request
 function searchNoteViaAjax(id) {
 
-    var search = {};
-    search["position"] = id;
-
     $.ajax({
-        type: "POST",
+        type: "GET",
         contentType: "application/json",
-        url: "/searchNote",
-        data: JSON.stringify(search),
+        url: "/searchNote?position=" + id,
         dataType: 'json',
         timeout: 100000,
         success: function (data) {
@@ -21,9 +17,8 @@ function searchNoteViaAjax(id) {
         },
         error: function (e) {
             console.log("ERROR: ", e);
-            displayNote(e);
         },
-        done: function (e) {
+        done: function () {
             console.log("DONE");
             enableSearchButton(true);
         }

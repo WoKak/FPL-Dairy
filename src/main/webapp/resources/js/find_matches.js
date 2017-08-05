@@ -17,14 +17,10 @@ jQuery(document).ready(function($) {
 //function responsible for AJAX request
 function searchMatchViaAjax() {
 
-    var search = {};
-    search["number"] = $("#day_number").val();
-
     $.ajax({
-        type : "POST",
+        type : "GET",
         contentType : "application/json",
-        url : "/searchMatches",
-        data : JSON.stringify(search),
+        url : "/searchMatches?number=" + $("#day_number").val(),
         dataType : 'json',
         timeout : 100000,
         success : function(data) {
@@ -33,9 +29,8 @@ function searchMatchViaAjax() {
         },
         error : function(e) {
             console.log("ERROR: ", e);
-            display(e);
         },
-        done : function(e) {
+        done : function() {
             console.log("DONE");
             enableSearchButton(true);
         }

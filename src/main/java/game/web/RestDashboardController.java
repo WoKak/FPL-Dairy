@@ -4,8 +4,8 @@ import com.fasterxml.jackson.annotation.JsonView;
 import game.model.*;
 import game.model.service.DashboardService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.sql.SQLException;
@@ -31,18 +31,18 @@ public class RestDashboardController {
 
     /**
      * Method used for finding matches.
-     * @param criteria - input from form
+     * @param number - input from form
      * @return - JSON with list of matches
      */
     @JsonView(Views.Public.class)
     @RequestMapping(value = { "/searchMatches"})
-    public AjaxFoundMatchesResponseBody findMatches(@RequestBody MatchesSearchingCriteria criteria) throws SQLException {
+    public FoundMatchesResponseBody findMatches(@RequestParam String number) throws SQLException {
 
-        AjaxFoundMatchesResponseBody result = new AjaxFoundMatchesResponseBody();
+        FoundMatchesResponseBody result = new FoundMatchesResponseBody();
 
-        if (Optional.ofNullable(criteria).isPresent()) {
+        if (Optional.ofNullable(number).isPresent()) {
 
-            List<Match> matches = findMatchesByCriteria(criteria.getNumber());
+            List<Match> matches = findMatchesByCriteria(number);
 
             if (matches.size() > 0) {
 
@@ -72,13 +72,13 @@ public class RestDashboardController {
      */
     @JsonView(Views.Public.class)
     @RequestMapping(value = { "/searchNote"})
-    public AjaxFoundNoteResponseBody findNote(@RequestBody NoteSearchingCriteria criteria) throws SQLException {
+    public FoundNoteResponseBody findNote(@RequestParam String position) throws SQLException {
 
-        AjaxFoundNoteResponseBody result = new AjaxFoundNoteResponseBody();
+        FoundNoteResponseBody result = new FoundNoteResponseBody();
 
-        if (Optional.ofNullable(criteria).isPresent()) {
+        if (Optional.ofNullable(position).isPresent()) {
 
-            String note = getNoteByCriteria(criteria.getPosition());
+            String note = getNoteByCriteria(position);
 
             if (Optional.ofNullable(note).isPresent()) {
 

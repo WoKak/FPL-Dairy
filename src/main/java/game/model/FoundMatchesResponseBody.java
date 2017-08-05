@@ -9,7 +9,7 @@ import java.util.List;
  * Created by Michał on 2017-08-01.
  * Simple class for mapping Java object to JSON
  */
-public class AjaxFoundMatchesResponseBody {
+public class FoundMatchesResponseBody {
 
     @JsonView(Views.Public.class)
     List<Match> matches;
