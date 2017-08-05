@@ -13,7 +13,7 @@
             background-image: url("/resources/images/chelsea.jpg");
         }
     </style>
-    <script type="text/javascript" src="<c:url value="/resources/jquery/jquery.1.10.2.min.js" />"></script>
+    <script type="text/javascript" src="<c:url value="/resources/jquery/jquery-3.2.1.min.js" />"></script>
 </head>
 </head>
 <body>
