@@ -21,8 +21,12 @@ import javax.validation.Valid;
 @RequestMapping("/register")
 public class RegistrationController {
 
-    @Autowired
     private UserToRegisterService userToRegisterService;
+
+    @Autowired
+    public RegistrationController(UserToRegisterService userToRegisterService) {
+        this.userToRegisterService = userToRegisterService;
+    }
 
     /**
      * Method which binds data.

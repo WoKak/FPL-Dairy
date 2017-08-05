@@ -20,8 +20,12 @@ import java.sql.SQLException;
 @RequestMapping(value = "/addMatch")
 public class MatchToAddController {
 
+    private MatchService matchService;
+
     @Autowired
-    public MatchService matchService;
+    public MatchToAddController(MatchService matchService) {
+        this.matchService = matchService;
+    }
 
     @RequestMapping(method = RequestMethod.GET)
     public String adminPage(Model model) {

@@ -20,18 +20,20 @@ import java.util.Optional;
 @Service
 public class UserToRegisterService {
 
-    @Autowired
-    public PasswordEncoder passwordEncoder;
+
+    private PasswordEncoder passwordEncoder;
+    private DataSource dataSource;
 
     @Autowired
-    private DataSource dataSource;
+    public UserToRegisterService(PasswordEncoder passwordEncoder, DataSource dataSource) {
+        this.passwordEncoder = passwordEncoder;
+        this.dataSource = dataSource;
+    }
 
     /**
      * method responsible for registering user
      */
     public void addUser(UserToRegister newUserToRegister, BindingResult bindingResult) throws Exception {
-
-
 
             if (Optional.ofNullable(bindingResult).isPresent())
                 if (bindingResult.hasErrors()) {

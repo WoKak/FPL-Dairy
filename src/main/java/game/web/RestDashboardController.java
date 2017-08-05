@@ -18,12 +18,16 @@ import java.util.Optional;
  */
 
 @RestController
-public class DashboardAjaxController {
+public class RestDashboardController {
 
     private List<Match> matches;
 
+    private DashboardService dashboardService;
+
     @Autowired
-    public DashboardService dashboardService;
+    public RestDashboardController(DashboardService dashboardService) {
+        this.dashboardService = dashboardService;
+    }
 
     /**
      * Method used for finding matches.

@@ -21,7 +21,7 @@
 <div class="nav">
     <ul>
         <li><a href="<spring:url value="/dashboard"/>">dashboard</a></li>
-        <li><a href="<spring:url value="/admin"/>">dodaj mecz</a></li>
+        <li><a href="<spring:url value="/addMatch"/>">dodaj mecz</a></li>
     </ul>
 </div>
 <table id="content">

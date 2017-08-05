@@ -17,8 +17,12 @@ import java.sql.SQLException;
 @Service
 public class MatchService {
 
-    @Autowired
     private DataSource dataSource;
+
+    @Autowired
+    public MatchService(DataSource dataSource) {
+        this.dataSource = dataSource;
+    }
 
     /**
      * Method connects with database and put there data

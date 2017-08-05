@@ -17,8 +17,12 @@ import java.util.List;
 @Service
 public class DashboardService {
 
+    private DataSource dataSource;
+
     @Autowired
-    DataSource dataSource;
+    public DashboardService(DataSource dataSource) {
+        this.dataSource = dataSource;
+    }
 
     /**
      * Finds list of matches by criteria.
