@@ -1,6 +1,7 @@
-package game.model.service;
+package game.service;
 
 import game.model.Match;
+import game.repository.MatchRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,17 +12,17 @@ import java.util.List;
 
 /**
  * Created by Michał on 2017-08-01.
- * Service for DashboardAjaxController
+ * Service for RestDashboardController
  */
 
 @Service
 public class DashboardService {
 
-    private DataSource dataSource;
+    private MatchRepository matchRepository;
 
     @Autowired
-    public DashboardService(DataSource dataSource) {
-        this.dataSource = dataSource;
+    public DashboardService(MatchRepository matchRepository) {
+        this.matchRepository = matchRepository;
     }
 
     /**
@@ -31,28 +32,7 @@ public class DashboardService {
      */
     public List<Match> findMatchesByCriteria(String criteria) throws SQLException{
 
-        List<Match> toReturn = new ArrayList<>();
-
-        Connection connection = dataSource.getConnection();
-
-        String query = "SELECT * FROM matches WHERE day_number=?";
-        PreparedStatement pstat = connection.prepareStatement(query);
-        pstat.setInt(1, Integer.parseInt(criteria));
-        ResultSet result = pstat.executeQuery();
-
-        while (result.next()) {
-
-            toReturn.add(new Match(
-                    result.getInt(1),
-                    result.getString(2),
-                    result.getString(3),
-                    result.getInt(4),
-                    result.getInt(5),
-                    result.getString(6)
-            ));
-        }
-
-        return toReturn;
+        return matchRepository.findMatchesByCriteria(criteria);
     }
 
     /**

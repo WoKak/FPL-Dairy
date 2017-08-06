@@ -1,6 +1,8 @@
 package game.config;
 
 
+import game.repository.MatchRepository;
+import game.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -48,5 +50,17 @@ public class AppConfig {
 
         PasswordEncoder encoder = new BCryptPasswordEncoder();
         return encoder;
+    }
+
+    @Bean
+    public MatchRepository matchRepository() {
+
+        return new MatchRepository(dataSource());
+    }
+
+    @Bean
+    public UserRepository userRepository() {
+
+        return new UserRepository(dataSource(), passwordEncoder());
     }
 }

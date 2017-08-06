@@ -1,7 +1,7 @@
 package game.web;
 
 import game.model.Match;
-import game.model.service.MatchService;
+import game.service.MatchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -52,7 +52,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                     .authorizeRequests()
                     .antMatchers("/dashboard", "addMatch").authenticated()
-                    .antMatchers("/admin").access("hasRole('ROLE_ADMIN')")
+                    .antMatchers("/addMatch").access("hasRole('ROLE_ADMIN')")
                     .anyRequest().permitAll()
                 //.and()
                 //    .exceptionHandling().accessDeniedPage("/403")
