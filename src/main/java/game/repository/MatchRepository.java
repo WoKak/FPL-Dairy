@@ -18,6 +18,7 @@ import java.util.List;
 public class MatchRepository {
 
     private DataSource dataSource;
+    private ArrayList<Match> matches;
 
     @Autowired
     public MatchRepository(DataSource dataSource) {
@@ -52,7 +53,7 @@ public class MatchRepository {
      */
     public List<Match> findMatchesByCriteria(String criteria) throws SQLException{
 
-        List<Match> toReturn = new ArrayList<>();
+        matches = new ArrayList<>();
 
         Connection connection = dataSource.getConnection();
 
@@ -63,7 +64,7 @@ public class MatchRepository {
 
         while (result.next()) {
 
-            toReturn.add(new Match(
+            matches.add(new Match(
                     result.getInt(1),
                     result.getString(2),
                     result.getString(3),
@@ -73,6 +74,18 @@ public class MatchRepository {
             ));
         }
 
+        ArrayList<Match> toReturn = matches;
+
         return toReturn;
+    }
+
+    /**
+     * Finds requested note
+     * @param position - information which match was clicked
+     * @return - note from particular match
+     */
+    public String findNote(String position) {
+
+        return matches.get(Integer.parseInt(position)).getNote();
     }
 }

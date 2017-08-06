@@ -20,8 +20,6 @@ import java.util.Optional;
 @RestController
 public class RestDashboardController {
 
-    private List<Match> matches;
-
     private DashboardService dashboardService;
 
     @Autowired
@@ -60,14 +58,12 @@ public class RestDashboardController {
      */
     private List<Match> findMatchesByCriteria(String criteria) throws SQLException{
 
-        matches = dashboardService.findMatchesByCriteria(criteria);
-
-        return matches;
+        return dashboardService.findMatchesByCriteria(criteria);
     }
 
     /**
      * Finds note for clicked match.
-     * @param criteria - which match was clicked
+     * @param position - which match was clicked
      * @return - JSON with note
      */
     @JsonView(Views.Public.class)
@@ -96,6 +92,6 @@ public class RestDashboardController {
      */
     private String getNoteByCriteria(String position) {
 
-        return dashboardService.findNoteByCriteria(position, matches);
+        return dashboardService.findNoteByCriteria(position);
     }
 }
