@@ -17,6 +17,7 @@
 </head>
 <body>
     <h1 id="game">fpl dairy</h1>
+    <p id="loginPage"></p>
     <p id="msg">${msg}</p>
 	<p>
         Zaloguj się,

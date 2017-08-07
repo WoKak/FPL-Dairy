@@ -18,6 +18,7 @@
 </head>
 <body>
 <h1 id="game">fpl dairy</h1>
+<p id="dashboardPage"></p>
 <div class="nav">
     <ul>
         <li><a href="<spring:url value="/dashboard"/>">dashboard</a></li>

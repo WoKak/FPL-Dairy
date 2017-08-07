@@ -17,6 +17,7 @@
 </head>
 <body>
 <h1 id="game">fpl dairy</h1>
+<p id="registerPage"></p>
 <p>
     <a href="<spring:url value="/home"/>">Powrót do strony głównej</a>.
 </p>

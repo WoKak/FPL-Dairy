@@ -17,6 +17,7 @@
 </head>
 <body>
 <h1 id="game">fpl dairy</h1>
+<p id="homePage"></p>
 <p>Aplikacja/dziennik gry w fantasy football.</p>
 <p><a href=" <spring:url value="/dashboard"/> ">Graj teraz!</a></p>
 </div>
