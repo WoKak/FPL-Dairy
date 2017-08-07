@@ -19,6 +19,7 @@ purposes, in future it will be also little game connected to this app
 * CSS
 * Maven 3.3.9
 * MySQL
+* Selenium 3.4.0
 
 # Features
 
