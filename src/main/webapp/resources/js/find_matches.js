@@ -3,9 +3,9 @@
  */
 
 //main function with anonymous function responsible for processing form submitting
-jQuery(document).ready(function($) {
+jQuery(document).ready(function ($) {
 
-    $("#matchday_form").submit(function(event) {
+    $("#matchday_form").submit(function (event) {
 
         enableSearchButton(false);
         event.preventDefault();
@@ -18,19 +18,19 @@ jQuery(document).ready(function($) {
 function searchMatchViaAjax() {
 
     $.ajax({
-        type : "GET",
-        contentType : "application/json",
-        url : "/searchMatches?number=" + $("#day_number").val(),
-        dataType : 'json',
-        timeout : 100000,
-        success : function(data) {
+        type: "GET",
+        contentType: "application/json",
+        url: "/searchMatches?number=" + $("#day_number").val(),
+        dataType: 'json',
+        timeout: 100000,
+        success: function (data) {
             console.log("SUCCESS: ", data);
             displayMatches(data);
         },
-        error : function(e) {
+        error: function (e) {
             console.log("ERROR: ", e);
         },
-        done : function() {
+        done: function () {
             console.log("DONE");
             enableSearchButton(true);
         }
@@ -46,23 +46,31 @@ function enableSearchButton(flag) {
 //function responsible for displaying data
 function displayMatches(data) {
 
-    var json = "<h4>Mecze:</h4>";
+    let toDisplay = "<h4>Mecze:</h4>";
 
-    var response = JSON.parse(JSON.stringify(data, null, 4));
+    const response = JSON.parse(JSON.stringify(data, null, 4));
 
-    var matches = '';
+    let matches = '';
 
-    for(var i = 0; i < response.matches.length; i++) {
+    let matchToHTML = (response, i) => {
 
-        matches += '<p id="match'+ i + '" class="match" onclick="searchNoteViaAjax(' + i + ')">';
-        matches += response.matches[i].homeTeam + " ";
-        matches += response.matches[i].homeGoals + ":";
-        matches += response.matches[i].awayGoals + " ";
-        matches += response.matches[i].awayTeam;
-        matches += '</p>';
+        let toReturn = '';
+        toReturn += '<p id="match' + i + '" class="match" onclick="searchNoteViaAjax(' + i + ')">';
+        toReturn += response.matches[i].homeTeam + " ";
+        toReturn += response.matches[i].homeGoals + ":";
+        toReturn += response.matches[i].awayGoals + " ";
+        toReturn += response.matches[i].awayTeam;
+        toReturn += '</p>';
+
+        return toReturn
+    };
+
+    for (let i = 0; i < response.matches.length; i++) {
+
+        matches += matchToHTML(response, i);
     }
 
-    json += matches;
+    toDisplay += matches;
 
-    $('#games').html(json);
+    $('#games').html(toDisplay);
 }

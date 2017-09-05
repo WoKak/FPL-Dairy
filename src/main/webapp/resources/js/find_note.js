@@ -28,9 +28,9 @@ function searchNoteViaAjax(id) {
 //function responsible for displaying data
 function displayNote(data) {
 
-    var response = JSON.parse(JSON.stringify(data, null, 4));
+    const response = JSON.parse(JSON.stringify(data, null, 4));
 
-    var json = "<p>" + response.note + "</p>";
+    const toDisplay = "<p>" + response.note + "</p>";
 
-    $('#note').html(json);
+    $('#note').html(toDisplay);
 }

@@ -10,7 +10,7 @@ purposes, in future it will be also little game connected to this app
 * Spring JDBC 4.3.9
 * Spring Security 4.2.2
 * Servlet API 3.1
-* JavaScript
+* JavaScript (ES6)
 * AJAX
 * Jackson 2.8.8
 * JSON
